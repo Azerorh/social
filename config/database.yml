@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  username: <%= Rails.application.credentials[:username] %>
+  password: <%= Rails.application.credentials[:password] %>
+  host: localhost
+  database: social_development
+
+test:
+  <<: *default
+  username: <%= Rails.application.credentials[:username] %>
+  password: <%= Rails.application.credentials[:password] %>
+  host: localhost
+  database: social_test
+
+production:
+  <<: *default
+  username: <%= Rails.application.credentials[:username_heroku] %>
+  password: <%= Rails.application.credentials[:password_heroku] %>
+  host: <%= Rails.application.credentials[:host_heroku] %>
+  database: <%= Rails.application.credentials[:database_heroku] %>
+  port: <%= Rails.application.credentials[:port_heroku] %>

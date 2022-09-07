@@ -1,0 +1,14 @@
+<div>
+  <p>
+    <strong>User:</strong>
+    <%= friend.name %>
+  </p>
+
+  <%= image_tag(friend.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle") %>
+  
+  <p>
+    <strong>Friend:</strong>
+    <%= friend.status %>
+  </p>
+
+</div>
